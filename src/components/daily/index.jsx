@@ -3,6 +3,7 @@ import React from 'react'
 import Image from "next/image";
 import mainLogo from "../../../public/bardle.png";
 const crypto = require("crypto");
+import { FiTriangle } from "react-icons/fi"
 
 function DailyGuess() {
     function generateDailyNumber() {
@@ -29,8 +30,10 @@ function DailyGuess() {
                 <Image src={mainLogo} className='w-[300px] md:w-[400px] mx-auto py-16' />
             </div>
             <div className="mx-auto flex items-center md:max-w-[80%] lg:max-w-[30%]">
-                {/* <MagnifyingGlassIcon className="h-5 w-5 text-[#9f9f9f]" /> */}
                 <input className="flex-1 px-4 py-3 text-slate-900 placeholder-slate-400 font-extrabold border-slate-900 border-[5px] border-b-[10px] outline-none" type="text" placeholder="Guess the champion..." />
+                <div className='relative right-10 my-auto'>
+                    <FiTriangle className="h-4 w-4 rotate-90 text-slate-900" />
+                </div>
             </div>
 
             <div className='mx-auto flex justify-center w-100 mt-5 mb-16'>
@@ -77,7 +80,7 @@ function DailyGuess() {
                 <div className="bg-red-300 border-slate-900 border-t-[5px] border-r-[5px] border-b-[13px] border-l-[10px] grid place-items-center font-extrabold w-[100px] min-w-[100px] h-[100px] champ__gender">
                     <p className='text-slate-900'>Human</p>
                 </div>
-                <div className="bg-green-300 border-slate-900 border-t-[5px] border-r-[5px] border-b-[13px] border-l-[10px] grid place-items-center font-extrabold w-[100px] min-w-[100px] h-[100px] champ__gender">
+                <div className="bg-yellow-200 border-slate-900 border-t-[5px] border-r-[5px] border-b-[13px] border-l-[10px] grid place-items-center font-extrabold w-[100px] min-w-[100px] h-[100px] champ__gender">
                     <p className='text-slate-900'>Mana</p>
                 </div>
                 <div className="bg-green-300 border-slate-900 border-t-[5px] border-r-[5px] border-b-[13px] border-l-[10px] grid place-items-center font-extrabold w-[100px] min-w-[100px] h-[100px] champ__gender">
