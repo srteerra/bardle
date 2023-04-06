@@ -1,5 +1,4 @@
 "use client";
-import DailyGuess from "@/components/daily";
 import React from "react";
 import Head from "next/head";
 import { Fade } from "react-awesome-reveal";
@@ -45,7 +44,6 @@ export default function Home() {
             )}
           </div>
         </div>
-        <DailyGuess />
       </div>
     </>
   );

@@ -7,7 +7,7 @@ export default function Document() {
     <Html lang="en">
       <Head />
 
-      <body className="dark:bg-stone-800 bg-green-50">
+      <body className="dark:bg-gray-700 bg-green-50">
         <ThemeProvider enableSystem={true} attribute="class">
           <Main />
           <NextScript />
