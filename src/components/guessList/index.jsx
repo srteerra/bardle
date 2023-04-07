@@ -6,7 +6,7 @@ function GuessList({cats, selections}) {
         <>
             <div className='mx-auto flex overflow-x-hidden gap-2 md:justify-center w-100'>
                 {cats.map((c) => (
-                    <div className="w-[100px] text-center min-w-[100px] h-[40px] champ__avatar" key={c}>
+                    <div className="w-[100px] text-center min-w-[100px] h-[60px] champ__avatar" key={c}>
                         <p>{ c }</p>
                     </div>
                 ))}

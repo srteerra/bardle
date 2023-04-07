@@ -9,6 +9,7 @@ import poro from "../../../public/poro.png";
 const crypto = require("crypto");
 import GuessList from "@/components/guessList";
 import Head from "next/head";
+import Link from "next/link";
 
 function DailyChamp() {
   const champs = ["Aatrox", "Ahri", "Akali"];
@@ -87,11 +88,29 @@ function DailyChamp() {
       </Head>
       <div className="px-6 py-4">
         <div>
-          <Image
-            src={mainLogo}
-            className="w-[300px] md:w-[400px] mx-auto py-16"
-          />
+          <Link href="/">
+            <Image
+              src={mainLogo}
+              className="w-[300px] md:w-[400px] mx-auto py-16"
+            />
+          </Link>
         </div>
+
+        <div className="p-6 flex gap-6 mx-auto items-center justify-center md:max-w-[80%] lg:max-w-[30%]">
+          <div className="flex items-center gap-3">
+            <div className="w-5 h-5 rounded-full bg-green-300"></div>
+            <p>Correct</p>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="w-5 h-5 rounded-full bg-yellow-200"></div>
+            <p>Partial</p>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="w-5 h-5 rounded-full bg-red-300"></div>
+            <p>Incorrect</p>
+          </div>
+        </div>
+
         <div className="mx-auto flex items-center md:max-w-[80%] lg:max-w-[30%]">
           <Combobox value={selectedPerson} onChange={setSelectedPerson}>
             <div className="relative mx-auto">
