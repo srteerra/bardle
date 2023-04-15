@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
 "use client";
-import { useState, Fragment } from "react";
+import { useState, Fragment, useEffect } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import Image from "next/image";
 import mainLogo from "../../../public/bardle.png";
@@ -10,56 +10,17 @@ const crypto = require("crypto");
 import GuessList from "@/components/guessList";
 import Head from "next/head";
 import Link from "next/link";
+import axios from "axios";
 
 function DailyChamp() {
-  const champs = ["Aatrox", "Ahri", "Akali"];
-  const json = {
-    "Aatrox": {
-      "_id": 1,
-      "name": "Aatrox",
-      "gender": "Male",
-      "position": "Top",
-      "species": "Darkin",
-      "resource": "Blood Well",
-      "range": "Melee",
-      "region": "Runeterra",
-      "release_year": 2013
-    },
-    "Ahri": {
-        "_id": 2,
-        "name": "Ahri",
-        "gender": "Female",
-        "position": "Mid",
-        "species": "Vastaya",
-        "resource": "Mana",
-        "range": "Ranged",
-        "region": "Ionia",
-        "release_year": 2011
-    },
-    "Akali": {
-        "_id": 3,
-        "name": "Akali",
-        "gender": "Female",
-        "position": "Mid, Top",
-        "species": "Human",
-        "resource": "Energy",
-        "range": "Melee",
-        "region": "Ionia",
-        "release_year": 2010
-    },
-  };
-
-  const categories = ["Champion", "Gender", "Position", "Specie", "Resource", "Range type", "Region", "Release year"]
-
   const [selectedPerson, setSelectedPerson] = useState("");
   const [query, setQuery] = useState("");
+  const [allChamps, setAllChamps] = useState([]);
+  const [champs, setChamps] = useState([]);
+  const [dailyNumber, setDailyNumber] = useState(null);
 
-  const filteredPeople =
-    query === ""
-      ? champs
-      : champs.filter((person) => {
-          return person.toLowerCase().includes(query.toLowerCase());
-        });
+  // Localstorage
+  const [mySelections, setMySelections] = useState([]);
 
   function generateDailyNumber() {
     const today = new Date();
@@ -75,8 +36,64 @@ function DailyChamp() {
     return num;
   }
 
-  const dailyNumber = generateDailyNumber();
-  console.log(dailyNumber); // prints a constant number between 1 and 7
+  useEffect(() => {
+    const fetch = async () => {
+      axios.get("https://lolchamps-api.onrender.com/champs").then(res => {
+        const champsRes = res.data
+
+        setAllChamps(champsRes)
+        setChamps(champsRes)
+      })
+    }
+
+    fetch().catch(console.error);
+    setDailyNumber(generateDailyNumber());
+
+    const selections = localStorage.getItem('my_selections')
+    const ndg = localStorage.getItem('ndg')
+
+    if (!selections) {
+      localStorage.setItem('ndg', generateDailyNumber());
+      localStorage.setItem('my_selections', []);
+      setMySelections([])
+    } else {
+      if (ndg === generateDailyNumber().toString()) {
+        setMySelections(JSON.parse(selections))
+      } else {
+        localStorage.setItem('my_selections', []);
+        localStorage.setItem('ndg', generateDailyNumber());
+      }
+    }
+
+    console.log(generateDailyNumber())
+
+    if (!ndg) {
+      localStorage.setItem('ndg', generateDailyNumber());
+    }
+
+  }, [])
+
+  const selectChampion = (e) => {
+    const newSelection = mySelections
+    newSelection.push(e)
+    setMySelections(newSelection)
+    localStorage.setItem('my_selections', JSON.stringify(newSelection));
+  }
+
+  const filteredPeople =
+    query === ""
+      ? champs
+      : champs.filter((c) => {
+          let cn = c.name
+
+          if (c.name === "MonkeyKing") {
+            cn = "Wukong"
+            return (cn).toLowerCase().includes(query.toLowerCase());
+          } else {
+            return (c.name).toLowerCase().includes(query.toLowerCase());
+          }
+
+        });
 
   return (
     <>
@@ -110,7 +127,7 @@ function DailyChamp() {
             <p>Incorrect</p>
           </div>
         </div>
-
+        
         <div className="mx-auto flex items-center md:max-w-[80%] lg:max-w-[30%]">
           <Combobox value={selectedPerson} onChange={setSelectedPerson}>
             <div className="relative mx-auto">
@@ -135,23 +152,25 @@ function DailyChamp() {
                       Champion not found
                     </div>
                   ) : (
-                    filteredPeople.map((person) => (
+                    
+                    filteredPeople.map((champion) => (
                       <Combobox.Option
-                        key={person.id}
+                        key={champion.name}
+                        onClick={() => selectChampion(champion.name)}
                         className={({ active }) =>
                           `relative cursor-default select-none py-3 pl-6 pr-4 ${
                             active ? "bg-slate-600 text-white" : "text-gray-900"
                           }`
                         }
-                        value={person}
+                        value={champion.name}
                       >
                         {({ selected, active }) => (
                           <>
                             <div
                               className="flex items-center"
                             >
-                                <img className="w-10 h-10" src={`https://cdn.communitydragon.org/12.13.1/champion/${person}/square`} alt="" />
-                                <span className="truncate ml-4 font-extrabold">{person}</span>
+                                <img className="w-10 h-10" src={`https://cdn.communitydragon.org/12.13.1/champion/${champion.name}/square`} alt="" />
+                                <span className="truncate ml-4 font-extrabold">{champion.name === "MonkeyKing" ? "Wukong" : champion.name}</span>
                             </div>
                           </>
                         )}
@@ -170,7 +189,7 @@ function DailyChamp() {
           </p>
         </div>
 
-        <GuessList cats={categories} selections={json} />
+        <GuessList selections={mySelections} />
 
         <div className="mx-auto flex justify-center w-100 my-16">
           <p>Yesterday was <strong>Lulu</strong></p>
