@@ -11,6 +11,7 @@ import GuessList from "@/components/guessList";
 import Head from "next/head";
 import Link from "next/link";
 import axios from "axios";
+import DarkMode from "@/components/DarkMode";
 
 function DailyChamp() {
   const [selectedPerson, setSelectedPerson] = useState("");
@@ -103,6 +104,7 @@ function DailyChamp() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <DarkMode />
       <div className="px-6 py-4">
         <div>
           <Link href="/">
