@@ -19,15 +19,13 @@ export default function Home() {
     theme === "dark" ? setTheme("light") : setTheme("dark");
   };
 
-  const data = [
-    { game: 'Game', href: "/daily" }
-  ];
+  const data = [{ game: "Game", href: "/daily" }];
 
   return (
     <main className="w-full grid grid-cols-12 lg:grid-cols-8 2xl:grid-cols-6">
       <div className={"w-full col-start-2 col-span-10"}>
         <div className={"w-60 mx-auto my-12"}>
-          <Image src={Logo} alt={"Bardle Logo"}/>
+          <Image src={Logo} alt={"Bardle Logo"} />
         </div>
 
         <button
@@ -35,9 +33,9 @@ export default function Home() {
           className="bg-secondary-6 dark:bg-accent-1 text-white dark:text-accent-7 p-2 rounded-xl hover:cursor-pointer"
         >
           {click ? (
-            <RiMoonFill className="text-xl"/>
+            <RiMoonFill className="text-xl" />
           ) : (
-            <RiSunLine className="text-xl"/>
+            <RiSunLine className="text-xl" />
           )}
         </button>
 
@@ -59,7 +57,7 @@ export default function Home() {
               setSelection={setClassicSelect}
               data={[
                 { mode: GameModeEnum.DAILY, href: "/daily" },
-                { mode: GameModeEnum.RUSH, href: "/rush/classic" }
+                { mode: GameModeEnum.RUSH, href: "/rush/classic" },
               ]}
             />
           </GameModeCard>

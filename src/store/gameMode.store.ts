@@ -31,5 +31,5 @@ export const useGameSelectStore = create<GameSelectType>((set) => ({
     set(() => ({ abilitySelect: mode })),
   setEmojiSelect: (mode: GameModeEnum) => set(() => ({ emojiSelect: mode })),
   setPlayerSelect: (mode: GameModeEnum) => set(() => ({ playerSelect: mode })),
-  setSplashSelect: (mode: GameModeEnum) => set(() => ({ splashSelect: mode }))
+  setSplashSelect: (mode: GameModeEnum) => set(() => ({ splashSelect: mode })),
 }));

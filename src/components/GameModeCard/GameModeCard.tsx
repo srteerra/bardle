@@ -17,7 +17,7 @@ export const GameModeCard = ({
   children,
   applyClass,
   title,
-  href
+  href,
 }: Props) => {
   return (
     <div
@@ -39,7 +39,7 @@ export const GameModeCard = ({
         className="rounded-xl h-full w-full hover:backdrop-brightness-150 transition-all ease-in duration-150 p-5 lg:p-10 flex flex-col justify-center 2xl:justify-end lg:justify-end items"
       >
         <span className="flex align-middle gap-2">
-          <TiFlash className={"hidden md:block"} size={35}/>
+          <TiFlash className={"hidden md:block"} size={35} />
           <span className="text-lg">{title}</span>
           {selectedMode != GameModeEnum.DAILY ? (
             <span
@@ -47,7 +47,7 @@ export const GameModeCard = ({
               data-tooltip-content={"Rush mode enabled."}
               className="text-xs border-2 border-primary text-primary px-3 my-1 ml-2 flex items-center rounded-full"
             >
-              <Tooltip id={"rush-option"}/>
+              <Tooltip id={"rush-option"} />
               Rush
             </span>
           ) : (

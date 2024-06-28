@@ -1,6 +1,4 @@
-export default [
-  {
-    extends: ["next/core-web-vitals", "plugin:react/recommended", "prettier"],
-    rules: {},
-  },
-];
+{
+  "extends": ["next/core-web-vitals", "plugin:react/recommended", "prettier"],
+  "rules": {}
+}
