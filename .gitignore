@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 .yarn/install-state.gz
+yarn.lock
+bun.lockb
 
 # testing
 /coverage
@@ -13,12 +15,19 @@
 /.next/
 /out/
 
+# firebase
+.firebase/
+.firebase/*
+firebase-debug.log
+firestore.indexes.json
+
 # production
 /build
 
 # misc
 .DS_Store
 *.pem
+.idea/
 
 # debug
 npm-debug.log*
@@ -26,7 +35,9 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env*.local
+.env.local
+.env.development
+.env
 
 # vercel
 .vercel
