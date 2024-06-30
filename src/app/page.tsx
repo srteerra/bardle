@@ -12,8 +12,7 @@ import { IGameCard } from "@/interfaces/IGameCard";
 import { TbWorld } from "react-icons/tb";
 
 export default function Home() {
-  const { classicSelect, setClassicSelect, abilitySelect, setAbilitySelect } =
-    useGameSelectStore();
+  const { classicSelect, setClassicSelect, abilitySelect, setAbilitySelect } = useGameSelectStore();
   const { theme, setTheme } = useTheme();
   const [click, setClick] = useState(false);
 
