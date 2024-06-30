@@ -12,7 +12,8 @@ import { IGameCard } from "@/interfaces/IGameCard";
 import { TbWorld } from "react-icons/tb";
 
 export default function Home() {
-  const { classicSelect, setClassicSelect, abilitySelect, setAbilitySelect } = useGameSelectStore();
+  const { classicSelect, setClassicSelect, abilitySelect, setAbilitySelect } =
+    useGameSelectStore();
   const { theme, setTheme } = useTheme();
   const [click, setClick] = useState(false);
 
@@ -22,33 +23,46 @@ export default function Home() {
   };
 
   const data: IGameCard[] = [
-    { title: "Classic", href: "/classic", selectedMode: classicSelect, setSelection: setClassicSelect, applyClass: "classicBack"},
-    { title: "Ability", href: "/ability", selectedMode: abilitySelect, setSelection: setAbilitySelect, applyClass: "abilityBack"}
+    {
+      title: "Classic",
+      href: "/classic",
+      selectedMode: classicSelect,
+      setSelection: setClassicSelect,
+      applyClass: "classicBack",
+    },
+    {
+      title: "Ability",
+      href: "/ability",
+      selectedMode: abilitySelect,
+      setSelection: setAbilitySelect,
+      applyClass: "abilityBack",
+    },
   ];
 
   return (
     <main className="w-full grid grid-cols-12 lg:grid-cols-8 2xl:grid-cols-6">
       <div className={"w-full col-start-2 col-span-10"}>
         <div className={"w-60 mx-auto mt-12 mb-6"}>
-          <Image src={Logo} alt={"Bardle Logo"}/>
+          <Image src={Logo} alt={"Bardle Logo"} />
         </div>
 
-        <div className={'flex gap-3 justify-center mt-6 mb-12'}>
+        <div className={"flex gap-3 justify-center mt-6 mb-12"}>
           <button
             onClick={() => handleClick()}
             className="bg-secondary-6 dark:bg-accent-1 text-white dark:text-accent-7 p-2 rounded-xl hover:cursor-pointer"
           >
-            {click
-              ? <RiMoonFill className="text-xl"/>
-              : <RiSunLine className="text-xl"/>
-            }
+            {click ? (
+              <RiMoonFill className="text-xl" />
+            ) : (
+              <RiSunLine className="text-xl" />
+            )}
           </button>
 
           <button
             onClick={() => handleClick()}
             className="bg-secondary-6 dark:bg-accent-1 text-white dark:text-accent-7 p-2 rounded-xl hover:cursor-pointer"
           >
-            <TbWorld className="text-xl"/>
+            <TbWorld className="text-xl" />
           </button>
         </div>
 
@@ -62,7 +76,7 @@ export default function Home() {
               applyClass={
                 item.selectedMode == GameModeEnum.DAILY
                   ? item.applyClass
-                  : item.applyClass + 'Rush'
+                  : item.applyClass + "Rush"
               }
             >
               <GameModeSwitch
@@ -70,11 +84,11 @@ export default function Home() {
                 setSelection={item.setSelection}
                 data={[
                   { mode: GameModeEnum.DAILY },
-                  { mode: GameModeEnum.RUSH }
+                  { mode: GameModeEnum.RUSH },
                 ]}
               />
             </GameModeCard>
-            ))}
+          ))}
         </div>
       </div>
     </main>
