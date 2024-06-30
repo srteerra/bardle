@@ -2,32 +2,109 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer {
+  body {
+    @apply dark:bg-[#121212] bg-[#FFEEE8];
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.socialsBack {
+  background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Azir_5.jpg");
+  object-fit: fill;
+  background-position: top;
+  background-size: cover;
+}
+
+.classicBack {
+  background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg");
+  object-fit: fill;
+  background-position: top;
+  background-size: cover;
+}
+
+.classicBackRush {
+  background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_1.jpg");
+  object-fit: fill;
+  background-position: center;
+  background-size: cover;
+}
+
+.abilityBack {
+  background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_2.jpg");
+  object-fit: fill;
+  background-position: right;
+  background-size: cover;
+}
+
+.abilityBackRush {
+  background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Morgana_3.jpg");
+  object-fit: cover;
+  background-size: cover;
+}
+
+.playersBack {
+  background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Leblanc_4.jpg");
+  object-fit: cover;
+  background-position: right;
+  background-size: cover;
+}
+
+.playersBackRush {
+  background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ryze_6.jpg");
+  object-fit: cover;
+  background-position: center;
+  background-size: cover;
+}
+
+.quoteBack {
+  background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Rammus_0.jpg");
+  object-fit: fill;
+  background-position: right;
+  background-size: cover;
+}
+
+.quoteBackRush {
+  background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Rammus_8.jpg");
+  object-fit: cover;
+  background-size: cover;
+}
+
+.emojiBack {
+  background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Lucian_1.jpg");
+  object-fit: fill;
+  background-position: right;
+  background-size: cover;
+}
+
+.emojiBackRush {
+  background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Xayah_2.jpg");
+}
+
+.splashBack {
+  background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Fizz_3.jpg");
+  object-fit: fill;
+  background-position: right;
+  background-size: cover;
+}
+
+.splashBackRush {
+  background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Thresh_3.jpg");
+  object-fit: fill;
+  background-position: center;
+  background-size: cover;
+}
+
+.scaled {
+  transform: scale(4);
+}
+
+.menu-box:hover {
+  border-color: #303030;
+  color: white;
 }
