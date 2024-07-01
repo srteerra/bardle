@@ -4,18 +4,20 @@ import { GameModeCard } from "@/components/GameModeCard/GameModeCard";
 import { useGameSelectStore } from "@/store/gameMode.store";
 import { GameModeSwitch } from "@/components/GameModeSwitch/GameModeSwitch";
 import { GameModeEnum } from "@/core/enums/GameModeEnum";
-import Logo from "../../public/branding/logos/logo-dark.png";
+import Logo from "../../../public/branding/logos/logo-dark.png";
 import Image from "next/image";
 import { RiMoonFill, RiSunLine } from "react-icons/ri";
 import { useTheme } from "next-themes";
 import { IGameCard } from "@/interfaces/IGameCard";
 import { TbWorld } from "react-icons/tb";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
   const { classicSelect, setClassicSelect, abilitySelect, setAbilitySelect } =
     useGameSelectStore();
   const { theme, setTheme } = useTheme();
   const [click, setClick] = useState(false);
+  const t: any = useTranslations<any>("home");
 
   const handleClick = () => {
     setClick(!click);
@@ -65,6 +67,8 @@ export default function Home() {
             <TbWorld className="text-xl" />
           </button>
         </div>
+
+        <div>{t("title")}</div>
 
         <div className={"w-full grid gap-3 grid-cols-1 grid-rows-6"}>
           {data.map((item: IGameCard, index: number) => (
