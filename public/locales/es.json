@@ -1,0 +1,6 @@
+{
+  "home": {
+    "title": "Hola mundo",
+    "variable-example": "Usando variable {{count}}"
+  }
+}
