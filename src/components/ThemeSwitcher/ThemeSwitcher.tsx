@@ -13,12 +13,8 @@ export const ThemeSwitcher = () => {
   };
 
   return (
-    <IconButton onClick={handleClick}>
-      {click ? (
-        <RiMoonFill className="text-xl" />
-      ) : (
-        <RiSunLine className="text-xl" />
-      )}
+    <IconButton ghost size={"lg"} onClick={handleClick}>
+      {click ? <RiMoonFill size={24} /> : <RiSunLine size={24} />}
     </IconButton>
   );
 };
