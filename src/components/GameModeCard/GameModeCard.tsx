@@ -1,4 +1,3 @@
-import { TiFlash } from "react-icons/ti";
 import { Tooltip } from "react-tooltip";
 import React from "react";
 import { GameModeEnum } from "@/core/enums/GameModeEnum";
@@ -10,6 +9,7 @@ interface Props {
   selectedMode: GameModeEnum;
   children: React.ReactNode;
   applyClass: string;
+  icon: React.ReactNode;
 }
 
 export const GameModeCard = ({
@@ -18,6 +18,7 @@ export const GameModeCard = ({
   applyClass,
   title,
   href,
+  icon,
 }: Props) => {
   return (
     <div
@@ -30,17 +31,17 @@ export const GameModeCard = ({
         lg:row-span-2 xl:row-start-1 2xl:row-start-1
         text-lg 2xl:text-4xl font-bold text-white dark:text-white dark:hover:text-gray-300 hover:cursor-pointer
         border-b-[12px] border-r-[12px] border-l-[6px] border-t-[6px]
-        bg-white dark:bg-gray-700 dark:hover:border-5 border-amber-800 hover:border-dark dark:border-secondary-6 dark:hover:border-gray-800`}
+        bg-white dark:bg-gray-700 dark:hover:border-5 border-secondary hover:border-dark dark:border-secondary-6 dark:hover:border-gray-800`}
       style={{ boxShadow: "inset 0px -140px 95px -46px black" }}
     >
       {children}
       <Link
         href={selectedMode == GameModeEnum.DAILY ? href : `/rush${href}`}
-        className="rounded-xl h-full w-full hover:backdrop-brightness-150 transition-all ease-in duration-150 p-5 lg:p-10 flex flex-col justify-center 2xl:justify-end lg:justify-end items"
+        className="rounded-xl h-full w-full hover:backdrop-brightness-150 transition-all ease-in duration-150 py-5 px-4 lg:p-10 flex flex-col justify-center 2xl:justify-end lg:justify-end items"
       >
-        <span className="flex align-middle gap-2">
-          <TiFlash className={"hidden md:block"} size={35} />
-          <span className="text-lg">{title}</span>
+        <span className="flex align-middle gap-1 p-0 m-0">
+          <div className={"text-2xl p-0 m-0"}>{icon}</div>
+          <span className="text-lg p-0 m-0">{title}</span>
           {selectedMode != GameModeEnum.DAILY ? (
             <span
               data-tooltip-id={"rush-option"}

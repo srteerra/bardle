@@ -1,3 +1,4 @@
+import React from "react";
 import { GameModeEnum } from "@/core/enums/GameModeEnum";
 
 export interface IGameCard {
@@ -6,4 +7,5 @@ export interface IGameCard {
   selectedMode: GameModeEnum;
   setSelection?: any;
   applyClass: string;
+  icon?: React.ReactNode;
 }
