@@ -21,6 +21,7 @@ export default function Home() {
               key={index}
               title={item.title}
               href={item.href}
+              icon={item.icon}
               selectedMode={item.selectedMode}
               applyClass={
                 item.selectedMode == GameModeEnum.DAILY
@@ -31,10 +32,6 @@ export default function Home() {
               <GameModeSwitch
                 currentSelection={item.selectedMode}
                 setSelection={item.setSelection}
-                data={[
-                  { mode: GameModeEnum.DAILY },
-                  { mode: GameModeEnum.RUSH },
-                ]}
               />
             </GameModeCard>
           ))}
