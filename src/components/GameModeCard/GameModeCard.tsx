@@ -27,9 +27,9 @@ export const GameModeCard = ({
       className={`h-full w-full relative menu-box
         ${applyClass}
         rounded-xl hover:scale-102 transition-all ease-out
-        ${sequence == 0 && 'md:col-start-1 md:row-start-1 col-span-1 row-span-1 md:row-span-2'}
-        ${sequence == 1 && 'md:col-start-2 md:row-start-1 col-span-1 row-span-1 md:row-span-2'}
-        ${sequence == 4 && 'md:col-start-1 md:row-start-4 col-span-1 row-span-1 md:col-span-2'}
+        ${sequence == 0 && "md:col-start-1 md:row-start-1 col-span-1 row-span-1 md:row-span-2"}
+        ${sequence == 1 && "md:col-start-2 md:row-start-1 col-span-1 row-span-1 md:row-span-2"}
+        ${sequence == 4 && "md:col-start-1 md:row-start-4 col-span-1 row-span-1 md:col-span-2"}
         text-lg 2xl:text-4xl font-bold text-white dark:text-white dark:hover:text-gray-300 hover:cursor-pointer
         border-b-[12px] border-r-[12px] border-l-[6px] border-t-[6px]
         bg-white dark:bg-gray-700 dark:hover:border-5 border-secondary hover:border-dark dark:border-secondary-6 dark:hover:border-gray-800`}

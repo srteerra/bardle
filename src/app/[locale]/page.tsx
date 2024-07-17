@@ -11,11 +11,13 @@ export default function Home() {
   const { games } = useGames();
 
   return (
-    <main className="w-full h-full grid grid-cols-12 lg:grid-cols-8 2xl:grid-cols-6">
-      <div className={"w-full col-start-2 col-span-10"}>
+    <main className="w-full h-full grid grid-cols-12 lg:grid-cols-6">
+      <div className={"col-start-2 col-span-10 lg:col-start-2 lg:col-span-4"}>
         <MainHeader />
 
-        <div className={'w-full mx-auto grid gap-3 grid-cols-1 grid-rows-6 md:grid-cols-2 md:grid-rows-4 xsm:w-[70%] md:w-full'}>
+        <div
+          className={"w-full mx-auto grid gap-3 grid-cols-1 grid-rows-6 md:grid-cols-2 md:grid-rows-4 xsm:w-[70%] md:w-full"}
+        >
           {games.map((item: IGameCard, index: number) => (
             <GameModeCard
               key={index}
