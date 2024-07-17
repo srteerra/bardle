@@ -4,6 +4,9 @@ module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      screens: {
+        'xsm': '520px',
+      },
       backgroundImage: {
         arena: "url('../../public/splash/bardleArena.jpg')",
       },
