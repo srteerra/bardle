@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        'xsm': '520px',
+        xsm: "520px",
       },
       backgroundImage: {
         arena: "url('../../public/splash/bardleArena.jpg')",
