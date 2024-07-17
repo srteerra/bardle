@@ -6,6 +6,7 @@ import Link from "next/link";
 interface Props {
   title: string;
   href: string;
+  sequence?: number;
   selectedMode: GameModeEnum;
   children: React.ReactNode;
   applyClass: string;
@@ -18,6 +19,7 @@ export const GameModeCard = ({
   applyClass,
   title,
   href,
+  sequence,
   icon,
 }: Props) => {
   return (
@@ -25,10 +27,9 @@ export const GameModeCard = ({
       className={`h-full w-full relative menu-box
         ${applyClass}
         rounded-xl hover:scale-102 transition-all ease-out
-        col-start-1 md:col-start-1 lg:col-start-1 xl:col-start-1 2xl:col-start-1
-        md:col-span-1 lg:col-span-2 xl:col-span-2 2xl:col-span-2
-        md:row-span-2 lg:row-start-1 xl:row-span-2 2xl:row-span-2
-        lg:row-span-2 xl:row-start-1 2xl:row-start-1
+        ${sequence == 0 && 'md:col-start-1 md:row-start-1 col-span-1 row-span-1 md:row-span-2'}
+        ${sequence == 1 && 'md:col-start-2 md:row-start-1 col-span-1 row-span-1 md:row-span-2'}
+        ${sequence == 4 && 'md:col-start-1 md:row-start-4 col-span-1 row-span-1 md:col-span-2'}
         text-lg 2xl:text-4xl font-bold text-white dark:text-white dark:hover:text-gray-300 hover:cursor-pointer
         border-b-[12px] border-r-[12px] border-l-[6px] border-t-[6px]
         bg-white dark:bg-gray-700 dark:hover:border-5 border-secondary hover:border-dark dark:border-secondary-6 dark:hover:border-gray-800`}
@@ -37,7 +38,7 @@ export const GameModeCard = ({
       {children}
       <Link
         href={selectedMode == GameModeEnum.DAILY ? href : `/rush${href}`}
-        className="rounded-xl h-full w-full hover:backdrop-brightness-150 transition-all ease-in duration-150 py-5 px-4 lg:p-10 flex flex-col justify-center 2xl:justify-end lg:justify-end items"
+        className="rounded-xl h-full w-full hover:backdrop-brightness-150 transition-all ease-in duration-150 py-5 px-4 lg:p-10 flex flex-col justify-center md:justify-end"
       >
         <span className="flex align-middle gap-1 p-0 m-0">
           <div className={"text-2xl p-0 m-0"}>{icon}</div>

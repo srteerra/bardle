@@ -5,6 +5,8 @@
 @layer {
   body {
     @apply dark:bg-[#121212] bg-[#FFEEE8];
+    width: 100vw;
+    height: 100vh;
   }
 }
 
