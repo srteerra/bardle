@@ -78,14 +78,17 @@
 }
 
 .emojiBack {
-  background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Lucian_1.jpg");
+  background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Xayah_2.jpg");
   object-fit: fill;
-  background-position: right;
+  background-position: center;
   background-size: cover;
 }
 
 .emojiBackRush {
-  background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Xayah_2.jpg");
+  background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Lucian_1.jpg");
+  object-fit: fill;
+  background-position: right;
+  background-size: cover;
 }
 
 .splashBack {

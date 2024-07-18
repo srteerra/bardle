@@ -1,13 +1,16 @@
 import { create } from "zustand";
 import { GameModeEnum } from "@/core/enums/GameModeEnum";
 
-interface GameSelectType {
+interface GameSelectStore {
   classicSelect: GameModeEnum;
   quoteSelect: GameModeEnum;
   abilitySelect: GameModeEnum;
   emojiSelect: GameModeEnum;
   playerSelect: GameModeEnum;
   splashSelect: GameModeEnum;
+}
+
+interface GameSelectActions {
   setClassicSelect: (mode: GameModeEnum) => void;
   setQuoteSelect: (mode: GameModeEnum) => void;
   setAbilitySelect: (mode: GameModeEnum) => void;
@@ -16,7 +19,7 @@ interface GameSelectType {
   setSplashSelect: (mode: GameModeEnum) => void;
 }
 
-export const useGameSelectStore = create<GameSelectType>((set) => ({
+export const useGameSelectStore = create<GameSelectStore & GameSelectActions>((set) => ({
   classicSelect: GameModeEnum.DAILY,
   quoteSelect: GameModeEnum.DAILY,
   abilitySelect: GameModeEnum.DAILY,
@@ -24,11 +27,9 @@ export const useGameSelectStore = create<GameSelectType>((set) => ({
   playerSelect: GameModeEnum.DAILY,
   splashSelect: GameModeEnum.DAILY,
 
-  setClassicSelect: (mode: GameModeEnum) =>
-    set(() => ({ classicSelect: mode })),
+  setClassicSelect: (mode: GameModeEnum) => set(() => ({ classicSelect: mode })),
   setQuoteSelect: (mode: GameModeEnum) => set(() => ({ quoteSelect: mode })),
-  setAbilitySelect: (mode: GameModeEnum) =>
-    set(() => ({ abilitySelect: mode })),
+  setAbilitySelect: (mode: GameModeEnum) => set(() => ({ abilitySelect: mode })),
   setEmojiSelect: (mode: GameModeEnum) => set(() => ({ emojiSelect: mode })),
   setPlayerSelect: (mode: GameModeEnum) => set(() => ({ playerSelect: mode })),
   setSplashSelect: (mode: GameModeEnum) => set(() => ({ splashSelect: mode })),

@@ -24,7 +24,7 @@ export const GameModeSwitch = ({
             item.mode == GameModeEnum.DAILY ? "Daily Mode" : "Rush Mode"
           }
           key={`${item.mode}-option`}
-          className={`${item.mode == currentSelection ? "bg-primary w-11" : "bg-gray-300 opacity-70 w-7"} h-7 rounded-full transition-all ease-in-out duration-200`}
+          className={`${item.mode == currentSelection ? "bg-primary w-11 md:w-9" : "bg-gray-300 opacity-70 w-7 md:w-5"} h-7 md:h-5 rounded-full transition-all ease-in-out duration-200`}
         >
           <Tooltip className="hidden md:block" id={`${item.mode}-option`} />
         </span>
