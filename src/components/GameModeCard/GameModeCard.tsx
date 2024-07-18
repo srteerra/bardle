@@ -2,7 +2,7 @@ import { Tooltip } from "react-tooltip";
 import React from "react";
 import { GameModeEnum } from "@/core/enums/GameModeEnum";
 import Link from "next/link";
-import './styles.css';
+import "./styles.css";
 
 interface Props {
   title: string;
@@ -53,7 +53,7 @@ export const GameModeCard = ({
               data-tooltip-content={"Rush mode enabled."}
               className="text-xs border-2 border-primary text-primary px-3 my-1 ml-2 flex items-center rounded-full"
             >
-              <Tooltip id={"rush-option"}/>
+              <Tooltip id={"rush-option"} />
               Rush
             </span>
           ) : (
