@@ -2,7 +2,7 @@ import { Tooltip } from "react-tooltip";
 import React from "react";
 import { GameModeEnum } from "@/core/enums/GameModeEnum";
 import Link from "next/link";
-import './styles.css';
+import "./styles.css";
 
 interface Props {
   title: string;
