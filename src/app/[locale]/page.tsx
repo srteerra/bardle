@@ -17,7 +17,7 @@ export default function Home() {
 
         <div
           className={
-            "w-full mx-auto grid gap-3 grid-cols-1 grid-rows-6 md:grid-cols-2 md:grid-rows-4 xsm:w-[70%] md:w-full"
+            "w-full xsm:w-[70%] md:w-full mx-auto grid gap-3 grid-cols-1 grid-rows-6 md:grid-cols-2 md:grid-rows-5 xl:grid-cols-4 xl:grid-rows-4"
           }
         >
           {games.map((item: IGameCard, index: number) => (

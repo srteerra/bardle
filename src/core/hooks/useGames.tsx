@@ -64,6 +64,14 @@ export const useGames = () => {
       applyClass: "splashBack",
       icon: <HiMiniPuzzlePiece />,
     },
+    {
+      title: "Players",
+      href: "/players",
+      selectedMode: playerSelect,
+      setSelection: setPlayerSelect,
+      applyClass: "playersBack",
+      icon: <HiMiniPuzzlePiece />,
+    },
   ];
 
   return {
