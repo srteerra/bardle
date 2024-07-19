@@ -4,7 +4,7 @@
     "allowJs": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
-    "declaration": true,
+    "declaration": false,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "strict": true,
