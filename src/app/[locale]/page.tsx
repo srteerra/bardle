@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { GameModeCard } from "@/components/GameModeCard/GameModeCard";
 import { GameModeSwitch } from "@/components/GameModeSwitch/GameModeSwitch";
 import { GameModeEnum } from "@/core/enums/GameModeEnum";
@@ -7,8 +7,13 @@ import { IGameCard } from "@/interfaces/IGameCard";
 import { MainHeader } from "@/components/Header";
 import { useGames } from "@/core/hooks/useGames";
 
-export default function Home() {
+interface Props {
+  params: { locale: string };
+}
+
+export default function Home({ params: { locale } }: Props) {
   const { games } = useGames();
+  console.log(locale);
 
   return (
     <main className="w-full h-full grid grid-cols-12 lg:grid-cols-6">
