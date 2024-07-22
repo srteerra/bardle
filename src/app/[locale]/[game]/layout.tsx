@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
 import React from "react";
-import { Inter } from "next/font/google";
-import "../globals.css";
-import { ThemeProvider } from "next-themes";
+import "../../globals.css";
 import { NextIntlClientProvider, useMessages } from "next-intl";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Bardle",
@@ -20,15 +16,14 @@ export default function RootLayout({
   params: { locale: string };
 }>) {
   const messages = useMessages();
+  console.log(locale);
 
   return (
-    <html suppressHydrationWarning lang={locale}>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class">
-          <NextIntlClientProvider locale={locale} messages={messages}>
-            {children}
-          </NextIntlClientProvider>
-        </ThemeProvider>
+    <html lang={locale}>
+      <body>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );
