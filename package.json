@@ -13,17 +13,6 @@
     "lint": "next lint",
     "prepare": "husky install"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "eslint --fix",
-      "prettier --write"
-    ]
-  },
   "dependencies": {
     "dotenv": "^16.4.5",
     "eslint-config-prettier": "^9.1.0",
