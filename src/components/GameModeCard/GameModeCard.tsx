@@ -41,7 +41,9 @@ export const GameModeCard = ({
     >
       {children}
       <Link
-        href={selectedMode == GameModeEnum.DAILY ? `/daily${href}` : `/rush${href}`}
+        href={
+          selectedMode == GameModeEnum.DAILY ? `/daily${href}` : `/rush${href}`
+        }
         className="rounded-xl h-full w-full hover:backdrop-brightness-150 transition-all ease-in duration-150 py-5 px-4 xl:px-5 xl:pb-6 xl:pt-16 flex flex-col justify-center md:justify-end"
       >
         <span className="flex align-middle gap-1 p-0 m-0">
