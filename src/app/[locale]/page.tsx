@@ -7,13 +7,8 @@ import { IGameCard } from "@/interfaces/IGameCard";
 import { MainHeader } from "@/components/Header";
 import { useGames } from "@/core/hooks/useGames";
 
-interface Props {
-  params: { locale: string };
-}
-
-export default function Home({ params: { locale } }: Props) {
+export default function Home() {
   const { games } = useGames();
-  console.log(locale);
 
   return (
     <main className="w-full h-full grid grid-cols-12 lg:grid-cols-6">
