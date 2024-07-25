@@ -26,7 +26,7 @@ export const useGames = () => {
   const games: IGameCard[] = [
     {
       title: "Classic",
-      href: "/classic",
+      href: "/",
       selectedMode: classicSelect,
       setSelection: setClassicSelect,
       applyClass: "classicBack",

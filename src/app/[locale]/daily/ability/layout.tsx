@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import React from "react";
-import "../../globals.css";
+import "../../../globals.css";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 
 export const metadata: Metadata = {
