@@ -2,5 +2,16 @@
   "home": {
     "title": "Hola mundo",
     "variable-example": "Usando variable {{count}}"
+  },
+  "headers": {
+    "displayName": "Nombre",
+    "gender": "Género",
+    "partype": "Tipo",
+    "position": "Posición",
+    "rangeType": "Rango",
+    "role": "Rol",
+    "regionFrom": "Región",
+    "releaseDate": "Fecha de lanzamiento",
+    "species": "Especie"
   }
 }
