@@ -13,41 +13,44 @@ interface IRow {
 
 const Row = ({ selection, headers }: IRow) => {
   const daily = {
-    "displayName": "Zoe",
-    "shortName": "Zoe",
-    "gender": 2,
-    "partype": 3,
-    "position": ["Middle"],
-    "rangeType": ["Ranged"],
-    "regionFrom": ["Targon"],
-    "releaseDate": "06-14-2017",
-    "role": ["Mage"],
-    "specie": ["Aspect"],
-    "titleChamp": "The Aspect of Twilight",
-    "avatarURL": "https://cdn.communitydragon.org/11.16.1/champion/Zoe/square"
+    displayName: "Zoe",
+    shortName: "Zoe",
+    gender: 2,
+    partype: 3,
+    position: ["Middle"],
+    rangeType: ["Ranged"],
+    regionFrom: ["Targon"],
+    releaseDate: "06-14-2017",
+    role: ["Mage"],
+    specie: ["Aspect"],
+    titleChamp: "The Aspect of Twilight",
+    avatarURL: "https://cdn.communitydragon.org/11.16.1/champion/Zoe/square",
   };
 
   const correct = {
-    backgroundColor: "#6df59e"
+    backgroundColor: "#6df59e",
   };
   const incorrect = {
-    backgroundColor: "#f17b7b"
+    backgroundColor: "#f17b7b",
   };
   const partial = {
-    backgroundColor: "#FFD28F"
+    backgroundColor: "#FFD28F",
   };
   const moreThan = {
-    content: "↑"
+    content: "↑",
   };
   const lessThan = {
-    content: "↓"
+    content: "↓",
   };
 
   const validate = (selected: any, key: any) => {
     if (Array.isArray(selected[key])) {
-      return _.intersection(selected[key], daily[key]).length == selected[key].length
-        ? correct : _.intersection(selected[key], daily[key]).length
-          ? partial : incorrect;
+      return _.intersection(selected[key], daily[key]).length ==
+        selected[key].length
+        ? correct
+        : _.intersection(selected[key], daily[key]).length
+          ? partial
+          : incorrect;
     } else if (key === "releaseDate") {
       const selectedDate = moment(selected[key], "DD-MM-YYYY");
       const dailyDate = moment(daily[key], "DD-MM-YYYY");
@@ -58,7 +61,10 @@ const Row = ({ selection, headers }: IRow) => {
           : { ...incorrect, ...lessThan };
     } else {
       return selected[key] == daily[key]
-        ? correct : selected[key] ? incorrect : partial;
+        ? correct
+        : selected[key]
+          ? incorrect
+          : partial;
     }
   };
 
@@ -74,7 +80,9 @@ const Row = ({ selection, headers }: IRow) => {
                   alt={selection.displayName}
                   width={100}
                   height={100}
-                  className={'w-[70px] md:w-[80px] 2xl:w-[100px] min-w-[70px] md:min-w-[80px] 2xl:min-w-[100px] h-[70px] md:h-[80px] 2xl:h-[100px]'}
+                  className={
+                    "w-[70px] md:w-[80px] 2xl:w-[100px] min-w-[70px] md:min-w-[80px] 2xl:min-w-[100px] h-[70px] md:h-[80px] 2xl:h-[100px]"
+                  }
                 />
               ) : (
                 <div
@@ -94,17 +102,30 @@ const Row = ({ selection, headers }: IRow) => {
                     />
                   ) : (
                     <p className="text-secondary-7 dark:text-secondary-7 text-center">
-                      {Array.isArray(selection[header.key])
-                        ? selection[header.key].map((item: string, idx: number) => (
-                          <span key={idx} className="text-secondary-7 dark:text-secondary-7 text-center flex flex-col">
-                        {item}
-                      </span>
-                        ))
-                        : <span className="text-secondary-7 dark:text-secondary-7 text-center">
-                      {header.isDate ?
-                        <small>{moment(selection[header.key]).format('DD/MM/YYYY')}</small> : selection[header.key]}
-                    </span>
-                      }
+                      {Array.isArray(selection[header.key]) ? (
+                        selection[header.key].map(
+                          (item: string, idx: number) => (
+                            <span
+                              key={idx}
+                              className="text-secondary-7 dark:text-secondary-7 text-center flex flex-col"
+                            >
+                              {item}
+                            </span>
+                          )
+                        )
+                      ) : (
+                        <span className="text-secondary-7 dark:text-secondary-7 text-center">
+                          {header.isDate ? (
+                            <small>
+                              {moment(selection[header.key]).format(
+                                "DD/MM/YYYY"
+                              )}
+                            </small>
+                          ) : (
+                            selection[header.key]
+                          )}
+                        </span>
+                      )}
                     </p>
                   )}
                 </div>
@@ -122,7 +143,7 @@ export const GuessRows = ({ selectedChamps, headers }: IGuessRow) => {
     <div className="w-[95%] mx-auto overflow-x-scroll overflow-y-hidden md:overflow-x-hidden flex flex-col-reverse">
       {selectedChamps.length ? (
         selectedChamps.map((item, index) => (
-          <Row key={index} selection={item} headers={headers}/>
+          <Row key={index} selection={item} headers={headers} />
         ))
       ) : (
         <div className="flex justify-center">
@@ -138,7 +159,7 @@ export const GuessRows = ({ selectedChamps, headers }: IGuessRow) => {
             className="w-[70px] md:w-[80px] 2xl:w-[100px] text-center text-sm 2xl:text-base min-w-[70px] mx:min-w-[80px] 2xl:min-w-[100px] h-[50px] md:h-[55px] 2xl:h-[60px]"
             key={header.key}
           >
-            <p className={'text-dark'}>{header.label}</p>
+            <p className={"text-dark"}>{header.label}</p>
           </div>
         ))}
       </div>
