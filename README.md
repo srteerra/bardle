@@ -25,3 +25,4 @@ Contributions are always welcome!
 
 React, Nextjs, TailwindCSS, Zustand & Firebase
 
+The data for now is only for testing purpose
